@@ -44,12 +44,16 @@ function App() {
   }
   const favouritesScreen = () => { 
     setCurrentScreen(FAVORITES)
+    clearFormsPlanet()
+    clearFormsPerson()
   }
   const addShowPersonScreen = () => {
     setCurrentScreen(ADDSHOWPERSONS)
+    clearFormsPlanet()
   }
   const addShowPlanetsScreen = () => {
     setCurrentScreen(ADDSHOWPLANETS)
+    clearFormsPerson()
   }
   
 //--------------------------------------------------------Persons
@@ -146,17 +150,28 @@ if( touchedPlanetsClimate ) {
     btnPlanetsDisableClimate = true;
 }
 
-if( touchedPlanetsTerrain ) {
-  if( isValidLength(valuePlanetsTerrain) )
+// if( touchedPlanetsTerrain ) {
+//   if( isValidLength(valuePlanetsTerrain) )
+//     btnPlanetsDisableTerrain = false;
+//   else
+//     btnPlanetsDisableTerrain = true;
+// }
+
+  if( isValidLength(valuePlanetsTerrain) ) {
     btnPlanetsDisableTerrain = false;
-  else
+  } else {
     btnPlanetsDisableTerrain = true;
 }
 
-if (touchedPlanetsName && touchedPlanetsClimate && touchedPlanetsTerrain && 
+if (touchedPlanetsName && touchedPlanetsClimate && 
   !btnPlanetsDisableName && !btnPlanetsDisableClimate && !btnPlanetsDisableTerrain ) {
   btnPlanetsDisable = false;
 }
+
+// if (touchedPlanetsName && touchedPlanetsClimate && touchedPlanetsTerrain && 
+//   !btnPlanetsDisableName && !btnPlanetsDisableClimate && !btnPlanetsDisableTerrain ) {
+//   btnPlanetsDisable = false;
+// }
 
 
 let planetsNameValMess = '';
@@ -182,6 +197,8 @@ if( touchedPlanetsTerrain ) {
   else
     planetsTerrainValMess = 'Please add at least 3 characters and max 20'
 }
+
+
 //----------------------------------Validation Person
 
 
@@ -237,17 +254,28 @@ if( touchedHomeWorld ) {
     btnDisableHomeworld = true;
 }
 
-if( touchedBirthyear ) {
-  if( isValidNumber(valueBirthyear) )
-    btnDisableiBrthyear = false;
-  else
-    btnDisableiBrthyear = true;
+// if( touchedBirthyear ) {
+//   if( isValidNumber(valueBirthyear) )
+//     btnDisableiBrthyear = false;
+//   else
+//     btnDisableiBrthyear = true;
+// }
+
+if( isValidNumber(valueBirthyear) ) {
+btnDisableiBrthyear = false;
+} else {
+btnDisableiBrthyear = true;
 }
 
-if (touchedName && touchedHomeWorld && touchedBirthyear && 
+
+if (touchedName && touchedHomeWorld &&
   !btnDisableName && !btnDisableHomeworld && !btnDisableiBrthyear ) {
     btnDisable = false;
-}
+} 
+
+// if (touchedName && touchedHomeWorld && touchedBirthyear && 
+//   !btnDisableName && !btnDisableHomeworld && !btnDisableiBrthyear ) {
+//     btnDisable = false;
 
 
 
@@ -275,6 +303,14 @@ if( touchedBirthyear ) {
     birthyearValMess = 'Please add(only numbers) atleast 1 digit and max 3'
 }
 
+  function clearFormsPerson() {
+    setValueName('');
+    setValueHomeworld('');
+    setValueBirthyear('');
+    setTouchedBirthyear(false)
+    setTouchedHomeWorld(false);
+    setTouchedName(false);
+  }
 
   const handleSubmit = event => {
   if (valueName && valueHomeworld && valueBirthyear) {
@@ -286,12 +322,7 @@ if( touchedBirthyear ) {
     }));
   }
 
-  setValueName('');
-  setValueHomeworld('');
-  setValueBirthyear('');
-  setTouchedBirthyear(false)
-  setTouchedHomeWorld(false);
-  setTouchedName(false);
+  clearFormsPerson()
 
   event.preventDefault();
 };
@@ -301,6 +332,15 @@ function deleteFavourite (persDel) {
   setFavourites(favourites.filter(x => x !== persDel));
 }
 
+
+function clearFormsPlanet() {
+  setValuePlanetsName('');
+  setValuePlanetsClimate('');
+  setValuePlanetsTerrain('');
+  setTouchedPlanetsName(false);
+  setTouchedPlanetsClimate(false);
+  setTouchedPlanetsTerrain(false);
+}
 
   const handleSubmitPlanets = event => {
   if (valuePlanetsName && valuePlanetsClimate && valuePlanetsTerrain) {
@@ -312,12 +352,7 @@ function deleteFavourite (persDel) {
     }));
   }
 
-  setValuePlanetsName('');
-  setValuePlanetsClimate('');
-  setValuePlanetsTerrain('');
-  setTouchedPlanetsName(false);
-  setTouchedPlanetsClimate(false);
-  setTouchedPlanetsTerrain(false);
+  clearFormsPlanet()
 
   event.preventDefault();
 };
