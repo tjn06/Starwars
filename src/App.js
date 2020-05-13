@@ -128,27 +128,35 @@ if( touchedPlanetsTerrain ) {
 
 
 let btnPlanetsDisable = true;
+let btnPlanetsDisableName = true;
+let btnPlanetsDisableClimate = true;
+let btnPlanetsDisableTerrain = true;
+
 if( touchedPlanetsName) {
   if( isValidLength(valuePlanetsName) )
-  btnPlanetsDisable = false;
+  btnPlanetsDisableName = false;
   else
-  btnPlanetsDisable = true;
+  btnPlanetsDisableName = true;
 }
 
 if( touchedPlanetsClimate ) {
   if( isValidLength(valuePlanetsClimate) )
-    btnPlanetsDisable = false;
+    btnPlanetsDisableClimate = false;
   else
-    btnPlanetsDisable = true;
+    btnPlanetsDisableClimate = true;
 }
 
 if( touchedPlanetsTerrain ) {
   if( isValidLength(valuePlanetsTerrain) )
-    btnPlanetsDisable = false;
+    btnPlanetsDisableTerrain = false;
   else
-    btnPlanetsDisable = true;
+    btnPlanetsDisableTerrain = true;
 }
 
+if (touchedPlanetsName && touchedPlanetsClimate && touchedPlanetsTerrain && 
+  !btnPlanetsDisableName && !btnPlanetsDisableClimate && !btnPlanetsDisableTerrain ) {
+  btnPlanetsDisable = false;
+}
 
 
 let planetsNameValMess = '';
@@ -210,26 +218,35 @@ if( touchedBirthyear ) {
 
 
 
-let btnName = true;
+let btnDisable = true;
+let btnDisableName = true;
+let btnDisableHomeworld = true;
+let btnDisableiBrthyear = true;
+
 if( touchedName ) {
   if( isValidLength(valueName) )
-  btnName = false;
+    btnDisableName = false;
   else
-  btnName = true;
+    btnDisableName = true;
 }
 
 if( touchedHomeWorld ) {
   if( isValidLength(valueHomeworld) )
-    btnName = false;
+    btnDisableHomeworld = false;
   else
-    btnName = true;
+    btnDisableHomeworld = true;
 }
 
 if( touchedBirthyear ) {
   if( isValidNumber(valueBirthyear) )
-    btnName = false;
+    btnDisableiBrthyear = false;
   else
-    btnName = true;
+    btnDisableiBrthyear = true;
+}
+
+if (touchedName && touchedHomeWorld && touchedBirthyear && 
+  !btnDisableName && !btnDisableHomeworld && !btnDisableiBrthyear ) {
+    btnDisable = false;
 }
 
 
@@ -349,8 +366,9 @@ const favouriteListAndFormPlanets = (
   <span>{planetsTerrainValMess}</span>
   <input type="text" className={cssClassPlanetsTerrain} value={valuePlanetsTerrain} placeholder="Input Terrain"
   onChange={handleChangeFormPlanetsTerrain} onBlur={event => setTouchedPlanetsTerrain(true)} />
+  {/* onChange={ event => {handleChangeFormPlanetsTerrain(event);setTouchedPlanetsTerrain(true)}} */}
   
-  <button disabled={btnPlanetsDisable} type="submit">Add Planet</button>
+  <button disabled={btnPlanetsDisable} type="submit" >Add Planet</button>
   </form>
   <h3 className="line-over">FAVOURITELIST PLANETS</h3>
   <div className="planets">{favouriteListPlanets}</div>
@@ -388,7 +406,7 @@ const favouriteListAndForm = (
     <input type="text" className={cssClassBirthyear} value={valueBirthyear} placeholder="Input Birthyear"
     onChange={handleChangeFormBirthyear} onBlur={event => setTouchedBirthyear(true)} />
 
-    <button disabled={btnName} type="submit">ADD PERSON</button>
+    <button disabled={btnDisable} type="submit">ADD PERSON</button>
     </form>
     <h3 className="line-over">FAVOURITELIST PERSONS</h3>
     <div className="persons">{favouriteList}</div>

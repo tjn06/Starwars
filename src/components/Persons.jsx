@@ -26,6 +26,8 @@ useEffect(() => {
   if (personWithPlanet.length > 1 ) {
   const results = personWithPlanet.filter(person =>
       person.name.toLowerCase().includes(searchTerm)
+      || person.homeworld.toLowerCase().includes(searchTerm)
+      || person.birth_year.toLowerCase().includes(searchTerm)
   );
   setSearchResults(results);
   }
