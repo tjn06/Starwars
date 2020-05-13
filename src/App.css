@@ -109,6 +109,10 @@ transition: all 0.7s;
   margin-top: 5em;
 }
 
+.margin-bottom-bar {
+  margin-bottom: 1em;
+}
+
 .btn-menue {
   border-bottom: 1.5px solid rgb(54, 54, 54);
   border-top-style: none; border-left-style: none; border-right-style: none;
@@ -120,7 +124,7 @@ transition: all 0.7s;
   margin-left: 1em;
   margin-right: 1em;
   font-family: 'Voltaire', sans-serif;
-  font-size: 0.7em;
+  font-size: 0.9em;
   letter-spacing: 2px;
   text-transform: uppercase;
   text-decoration: none;
@@ -151,6 +155,11 @@ border-image:
     rgb(182, 187, 149, 0.5), 
     rgba(0, 0, 0, 0)
   ) 1 5%;
+}
+
+.btn-add {
+  padding: 1em;
+
 }
 
 .persons {
@@ -212,7 +221,7 @@ border-image:
 
 .item-first-click {
 	height: 7em;
-  border:1.5px solid rgb(182, 187, 149);
+  border:1.5px solid rgb(123, 150, 1);
   background:  rgb(5, 5, 5);
   padding-bottom: 0.5em;
   padding-top: 0.5em;

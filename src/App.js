@@ -330,7 +330,7 @@ function deleteFavouritePlanets (planDel) {
 
 //----------------------------Favourites
 const favouritesSections = (
-  <div>
+  <div className="margin-bottom-bar">
   <button className="btn-menue" onClick={addShowPersonScreen}> Add/Show Favourite Person(s) </button>
   <button className="btn-menue" onClick={addShowPlanetsScreen}> Add/Show Favourite Planet(s) </button>
   <button className="btn-menue" onClick={favouritesScreen}> Show All Favourites </button>
@@ -352,8 +352,8 @@ const favouriteListPlanets = favouritesPlanets.map((planet,index) => (
 
 const favouriteListAndFormPlanets = (
   <div>
-  {favouritesSections}
   <h3 >ADD PLANET</h3>
+  {favouritesSections}
   <form className="flexRowShow" onSubmit={handleSubmitPlanets}>
   <span>{planetsNameValMess}</span>
   <input type="text" className={cssClassPlanetsName} value={valuePlanetsName} placeholder="Input Planet Name"
@@ -368,7 +368,7 @@ const favouriteListAndFormPlanets = (
   onChange={handleChangeFormPlanetsTerrain} onBlur={event => setTouchedPlanetsTerrain(true)} />
   {/* onChange={ event => {handleChangeFormPlanetsTerrain(event);setTouchedPlanetsTerrain(true)}} */}
   
-  <button disabled={btnPlanetsDisable} type="submit" >Add Planet</button>
+  <button className="btn-add" disabled={btnPlanetsDisable} type="submit" >Add Planet</button>
   </form>
   <h3 className="line-over">FAVOURITELIST PLANETS</h3>
   <div className="planets">{favouriteListPlanets}</div>
@@ -390,8 +390,8 @@ const favouriteList = favourites.map((person,index) => (
 
 const favouriteListAndForm = (
   <div>
-    {favouritesSections}
     <h3>ADD PERSON</h3>
+    {favouritesSections}
     <form className="flexRowShow" onSubmit={handleSubmit}>
     
     <span>{nameValMess}</span>
@@ -406,7 +406,7 @@ const favouriteListAndForm = (
     <input type="text" className={cssClassBirthyear} value={valueBirthyear} placeholder="Input Birthyear"
     onChange={handleChangeFormBirthyear} onBlur={event => setTouchedBirthyear(true)} />
 
-    <button disabled={btnDisable} type="submit">ADD PERSON</button>
+    <button className="btn-add" disabled={btnDisable} type="submit">ADD PERSON</button>
     </form>
     <h3 className="line-over">FAVOURITELIST PERSONS</h3>
     <div className="persons">{favouriteList}</div>
@@ -416,8 +416,9 @@ const favouriteListAndForm = (
 
 const favouriteListPersonsPlanets = (
   <div>
-  {favouritesSections}
+  
   <h3>ALL FAVOURITES</h3>
+  {favouritesSections}
   <h4 className="line-over">FAVOURITELIST PERSONS</h4>
   <div className="planets">{favouriteList}</div>
   <h4 className="line-over">FAVOURITELIST PLANETS</h4>
