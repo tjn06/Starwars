@@ -129,6 +129,10 @@ if( touchedPlanetsTerrain ) {
     cssClassPlanetsTerrain = 'invalid'
 }
 
+if ( isValidLength(valuePlanetsTerrain) ) {
+  cssClassPlanetsTerrain = 'valid';
+}
+
 
 
 let btnPlanetsDisable = true;
@@ -233,7 +237,9 @@ if( touchedBirthyear ) {
     cssClassBirthyear = 'invalid'
 }
 
-
+if( isValidNumber(valueBirthyear) ) {
+cssClassBirthyear = 'valid';
+}
 
 let btnDisable = true;
 let btnDisableName = true;
