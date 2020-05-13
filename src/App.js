@@ -134,7 +134,6 @@ if ( isValidLength(valuePlanetsTerrain) ) {
 }
 
 
-
 let btnPlanetsDisable = true;
 let btnPlanetsDisableName = true;
 let btnPlanetsDisableClimate = true;
@@ -154,13 +153,6 @@ if( touchedPlanetsClimate ) {
     btnPlanetsDisableClimate = true;
 }
 
-// if( touchedPlanetsTerrain ) {
-//   if( isValidLength(valuePlanetsTerrain) )
-//     btnPlanetsDisableTerrain = false;
-//   else
-//     btnPlanetsDisableTerrain = true;
-// }
-
   if( isValidLength(valuePlanetsTerrain) ) {
     btnPlanetsDisableTerrain = false;
   } else {
@@ -171,12 +163,6 @@ if (touchedPlanetsName && touchedPlanetsClimate &&
   !btnPlanetsDisableName && !btnPlanetsDisableClimate && !btnPlanetsDisableTerrain ) {
   btnPlanetsDisable = false;
 }
-
-// if (touchedPlanetsName && touchedPlanetsClimate && touchedPlanetsTerrain && 
-//   !btnPlanetsDisableName && !btnPlanetsDisableClimate && !btnPlanetsDisableTerrain ) {
-//   btnPlanetsDisable = false;
-// }
-
 
 let planetsNameValMess = '';
 if( touchedPlanetsName ) {
@@ -202,9 +188,7 @@ if( touchedPlanetsTerrain ) {
     planetsTerrainValMess = 'Please add at least 3 characters and max 20'
 }
 
-
 //----------------------------------Validation Person
-
 
 let cssClassName = '';
 if( touchedName ) {
@@ -260,12 +244,6 @@ if( touchedHomeWorld ) {
     btnDisableHomeworld = true;
 }
 
-// if( touchedBirthyear ) {
-//   if( isValidNumber(valueBirthyear) )
-//     btnDisableiBrthyear = false;
-//   else
-//     btnDisableiBrthyear = true;
-// }
 
 if( isValidNumber(valueBirthyear) ) {
 btnDisableiBrthyear = false;
@@ -278,11 +256,6 @@ if (touchedName && touchedHomeWorld &&
   !btnDisableName && !btnDisableHomeworld && !btnDisableiBrthyear ) {
     btnDisable = false;
 } 
-
-// if (touchedName && touchedHomeWorld && touchedBirthyear && 
-//   !btnDisableName && !btnDisableHomeworld && !btnDisableiBrthyear ) {
-//     btnDisable = false;
-
 
 
 let nameValMess = '';
