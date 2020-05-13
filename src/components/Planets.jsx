@@ -45,7 +45,7 @@ function handleAddFavorite (plan, index) {
         onChildClickPlanets(newPlanetArr)
         setAlreadyAdded('')
         setAddedPlanet(plan.name + ' ADDED TO FAVOURITELIST')
-        
+        setBorderAddedFirst(index)
         } else {
             setAlreadyAdded(plan.name + ' ALREADY ADDED TO FAVOURITELIST')
             setBorderAdded(index)
