@@ -6,7 +6,7 @@ const Persons = ({personWithPlanet, isLoading, onChildClick, favouritesPar}) => 
   const [searchTerm, setSearchTerm] = useState("");
   const [searchResults, setSearchResults] = useState([]);
   const handleChange = event => {
-  setSearchTerm(event.target.value);
+  setSearchTerm((event.target.value));
   };
   //--------------------------------FavouriteList
   const [favourites, setFavourites] = useState([])
@@ -25,9 +25,10 @@ useEffect(() => {
 useEffect(() => {
   if (personWithPlanet.length > 1 ) {
   const results = personWithPlanet.filter(person =>
-      person.name.toLowerCase().includes(searchTerm)
-      || person.homeworld.toLowerCase().includes(searchTerm)
-      || person.birth_year.toLowerCase().includes(searchTerm)
+      person.name.toLowerCase().includes(searchTerm.toLowerCase())
+      || person.homeworld.toLowerCase().includes(searchTerm.toLowerCase())
+      || person.birth_year.toLowerCase().includes(searchTerm.toLowerCase())
+
   );
   setSearchResults(results);
   }

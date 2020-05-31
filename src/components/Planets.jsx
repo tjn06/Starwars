@@ -25,9 +25,9 @@ useEffect(() => {
 useEffect(() => {
     if (planetsAll.length > 1 ) {
     const results = planetsAll.filter(planet =>
-    planet.name.toLowerCase().includes(searchTerm)
-    ||planet.climate.toLowerCase().includes(searchTerm)
-    ||planet.terrain.toLowerCase().includes(searchTerm)
+    planet.name.toLowerCase().includes(searchTerm.toLowerCase())
+    ||planet.climate.toLowerCase().includes(searchTerm.toLowerCase())
+    ||planet.terrain.toLowerCase().includes(searchTerm.toLowerCase())
     );
     setSearchResults(results);
     }

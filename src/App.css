@@ -302,7 +302,7 @@ input {
   margin-bottom: 10px;
   box-sizing: border-box;
   border: none;
-  border-bottom: 4px solid black;
+  border-bottom: 4px solid rgb(185, 184, 168);
   border-radius: 3px;
   text-align: center;
 }
